@@ -4,7 +4,6 @@ void main() {
   runApp(const MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -36,7 +35,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -114,6 +112,21 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            Expanded(
+                child: Row(
+              children: [
+                ...List.generate(
+                    3,
+                    (index) => Container(
+                          color: index % 3 == 0
+                              ? Colors.orangeAccent
+                              : index % 3 == 1
+                                  ? Colors.greenAccent
+                                  : Colors.blueAccent,
+                          child: Text('$index'),
+                        ))
+              ],
+            ))
           ],
         ),
       ),
